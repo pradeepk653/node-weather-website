@@ -8,8 +8,8 @@ const forecast = (latitude, longitude, callback) => {
             callback('Unable to connect to weather forecast service!', undefined)
         }else if(body.error){
             callback('Unable to find location', undefined)
-        }else{
-            const msg = body.daily.summary+" It is currently "+body.currently.temperature+" degrees out. There is "+body.currently.precipProbability+" percent chance of rain"
+        }else{console.log()
+            const msg = body.daily.summary+" It is currently "+body.currently.temperature+" degrees out. The high today is "+body.daily.data[0].temperatureHigh+" with a low of "+body.daily.data[0].temperatureLow+". There is "+body.currently.precipProbability+" percent chance of rain"
             callback(undefined, msg)
         }
     })
